@@ -1,0 +1,129 @@
+﻿<!--<form id="frm_create_product" name="sensorCreateForm" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">
+            <span>@("Edit SensorName")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <span>sensor Module</span>
+        <uib-tabset class="tab-container tabbable-line">
+            <uib-tab heading="sensor Details">
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <label for="name" class="form-label">@("title")</label>
+                            <div class="form-line">
+                                <input id="title" type="text" name="title" ng-model="vm.sensor.title">
+                            </div>
+                            <div class="form-line">
+                                <input id="title" type="text" name="title" ng-model="vm.sensor.attachment">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">-->
+                        @*<label class="form-label"> Sensor Upload  </label>*@
+                        <!--<div class="form-group marginbtmnone form-float">
+                            <div class="customfileupload">-->
+                                @*<input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required>*@
+                                <!--<div class="btn btn-primary  custom-file-uploader">
+                                    <input id="filetoupload" ng-model="vm.sensor.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" />
+                                    Browse
+                                </div>
+                                <span class="input-group-btn">-->
+                                    @*<a ng-if="vm.invoices.productUpload!=null" href={{vm.datafield.uploadDocUrl}} target="_blank" class="btn btn-primary btndownloadfile"><i class="fa fa-download" aria-hidden="true"></i></a>*@
+                                <!--</span>
+                            </div>
+                            <span>
+                                [only pdf,doc,txt,xls,jpg file allowed.]
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+            @("Cancel")
+        </button>
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()">
+            @("Save")
+        </button>
+    </div>
+
+</form>-->
+
+
+
+<form id="frm_create_sensor" name="sensorCreateForm" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">
+            <span>@("Edit SensorName")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <span>Sensor Module</span>
+        <uib-tabset class="tab-container tabbable-line">
+            <uib-tab heading="Sensor Details">
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <label for="name" class="form-label">@("title")</label>
+                            <div class="form-line">
+                                <input id="title" type="text" name="name" ng-model="vm.sensor.title" required maxlength="32" minlength="2" class="validate form-control">
+                            </div>
+                            <div class="form-line">
+                                <input id="title" type="text" name="name" ng-model="vm.sensor.attachment" required maxlength="32" minlength="2" class="validate form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        @*<label class="form-label"> Sensor Upload  </label>*@
+                        <div class="form-group marginbtmnone form-float">
+                            <div class="customfileupload">
+                                @*<input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required>*@
+                                <div class="btn btn-primary  custom-file-uploader">
+                                    <input id="filetoupload" ng-model="vm.sensor.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" />
+                                    Browse
+                                </div>
+                                <img ng-src="{{ uploadedImageUrl }}" ng-show="uploadedImageUrl" />
+                                <span class="input-group-btn">
+                                    @*<a ng-if="vm.invoices.productUpload!=null" href={{vm.datafield.uploadDocUrl}} target="_blank" class="btn btn-primary btndownloadfile"><i class="fa fa-download" aria-hidden="true"></i></a>*@
+                                </span>
+                                <img ng-src="{{imagePath}}" alt="Image" />
+                            </div>
+                            <span>
+                                [only pdf,doc,txt,xls,jpg file allowed.]
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+            @("Cancel")
+        </button>
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()">
+            @("Save")
+        </button>
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
+
+

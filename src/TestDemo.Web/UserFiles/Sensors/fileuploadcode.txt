@@ -1,0 +1,754 @@
+------>product.cs
+
+namespace TestDemo.Product
+{
+    [Table("product")]
+    public class products : FullAuditedEntity
+    {
+        public virtual string Name { get; set; }
+        public virtual string Attachment { get; set; }
+    }
+}
+
+
+
+
+------>> ProductAppService
+
+using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using Abp.Domain.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using TestDemo.FileUploadByDirective;
+using TestDemo.Product.Dto;
+
+namespace TestDemo.Product
+{
+    public class ProductAppService : TestDemoApplicationModule, IProductAppService
+    {
+        private readonly IRepository<products> _ProductRepository;
+        //private readonly IRepository<Productmaster> _productmasterRepository;
+        private readonly IRepository<Productchild> _productchildRepository;
+
+        public ProductAppService(IRepository<products> ProductRepository, /*IRepository<Productmaster> productmasterRepository*/ IRepository<Productchild> productchildRepository)
+        {
+            _ProductRepository = ProductRepository;
+            //_productmasterRepository = productmasterRepository;
+            _productchildRepository = productchildRepository;
+        }
+        public List<ProductDto> GetProductData()
+        {
+            var product = (from a in _ProductRepository.GetAll()
+                        select new ProductDto
+                        {
+                            Id = a.Id,
+                            Name = a.Name,
+                            Attachment = a.Attachment,
+                        }).ToList();
+            return product;
+        }
+
+        public async Task CreateProduct(CreateProductDto input)
+        {
+            var product = input.MapTo<products>();
+            await _ProductRepository.InsertAndGetIdAsync(product);
+        }
+
+        public async Task<ProductDto> getProductbyid(EntityDto input)
+        {
+            await _ProductRepository.GetAsync(input.Id);
+            var Products = (from a in _ProductRepository.GetAll()
+                         where a.Id == input.Id
+                         select new ProductDto
+                         {
+                             Id = a.Id,
+                             Name = a.Name,
+                             Attachment = a.Attachment,
+                         }).FirstOrDefault();
+            return Products;
+        }
+        public async Task UpdateProduct(CreateProductDto input)
+        {
+            var Products = await _ProductRepository.GetAsync(input.Id);
+            Products.Name = input.Name;
+            Products.Attachment = input.Attachment;
+            await _ProductRepository.UpdateAsync(Products);
+        }
+        public async Task DeleteProduct(EntityDto input)
+        {
+            await _ProductRepository.DeleteAsync(input.Id);
+        }
+        public bool ProductExsistence(ProductDto input)
+        {
+            return _ProductRepository.GetAll().Where(e => e.Attachment == input.Attachment).Any();
+        }
+        public bool ProductExsistenceById(ProductDto input)
+        {
+            return _ProductRepository.GetAll().Where(e => e.Attachment == input.Attachment && e.Id != input.Id).Any();
+        }
+
+        //public async Task<int> CreateFileUploadProduct(CreateFileUploadDto input)
+        //{
+        //    var Products = input.MapTo<Productmaster>();
+        //    int Id = await _productmasterRepository.InsertAndGetIdAsync(Products);
+        //    return Id;
+        //}
+        public async Task FileUploadProduct(FileUploadDto input)
+        {
+            if (input.Attachment != null && input.Attachment.Count() != 0)
+            {
+                for (int i = 0; i < input.Attachment.Count(); i++)
+                {
+                    Productchild doc = new Productchild();
+                    doc.Attachment = input.Attachment[i];
+                    doc.ProductId = input.Id;
+                    await _productchildRepository.InsertAsync(doc);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+------> index.js
+
+(function () {
+    angular.module('app').controller('app.views.product.index', [
+        '$scope', '$timeout', '$uibModal', 'abp.services.app.product',
+        function ($scope, $timeout, $uibModal, productService) {
+            var vm = this;
+            vm.product = [];
+            function getproduct() {
+                productService.getProductData()
+               
+                    .then(function (result) {
+                        vm.product = result.data;
+                    });
+            }
+
+            vm.openproductcreate = function () {
+                var modalInstance = $uibModal.open({
+                    templateUrl: '/App/Main/views/product/create.cshtml',
+                    controller: 'app.views.product.create as vm',
+                    backdrop: 'static'
+                });
+
+                modalInstance.rendered.then(function () {
+
+                    $.AdminBSB.input.activate();
+
+                });
+
+                modalInstance.result.then(function () {
+                    getproduct();
+                });
+
+            };
+            vm.openproductEdit = function (product) {
+                var modalInstance = $uibModal.open({
+                    templateUrl: '/App/Main/views/product/edit.cshtml',
+                    controller: 'app.views.product.edit as vm',
+                    backdrop: 'static',
+                    resolve: {
+                        id: function () {
+                            return product.id;
+                        }
+                    }
+                });
+
+                modalInstance.rendered.then(function () {
+                    $timeout(function () {
+                        $.AdminBSB.input.activate();
+                    }, 0);
+                });
+
+                modalInstance.result.then(function () {
+                    getproduct();
+                });
+            };
+            vm.deletedata = function (item) {
+                debugger;
+
+                abp.message.confirm(
+                    "delete test '" + item.name + "'?",
+                    "delete?",
+                    function (result) {
+                        if (result) {
+
+                            productService.deleteProduct({ id: item.id })
+                                .then(function () {
+                                    abp.notify.info("deleted product is: " + item.name);
+                                    getproduct();
+                                });
+                        }
+                    });
+            };
+
+            function init() {
+                getproduct();
+            }
+            init();
+        }
+    ]);
+})();
+
+
+
+
+------>index.cshtml
+
+
+
+<div class="row clearfix" ng-controller="app.views.product.index as vm">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    @("Products")
+                </h2>
+
+                        <button type="button" data-toggle="modal" class="btn btn-primary btn-square waves-effect waves-square waves-float pull-right" ng-click="vm.openproductcreate()">
+                            <i class="material-icons">add</i>
+                        </button>
+            </div>
+            <div class="body table-responsive">
+
+                <!-- ******************** -->
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>@L("Name")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="t in vm.product">
+                            <td>{{t.name}}</td>
+                            <td class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">menu</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a class="waves-effect waves-block" ng-click="vm.openproductEdit(t)"><i class="material-icons">create</i>edit</a></li>
+                                    <li><a class="waves-effect waves-block" ng-click="vm.deletedata(t)"><i class="material-icons">delete_sweep</i>delete</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+---------->>create.cshtml
+
+
+<form id="frm_create_product" name="productCreateForm">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">
+            <span>@("CreateNewProduct")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <span>product Module</span>
+        <uib-tabset class="tab-container tabbable-line">
+            <uib-tab heading="product Details">
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="name" type="text" name="name" ng-model="vm.product.name" maxlength="32" minlength="2" class="validate form-control">
+                                <label for="name" class="form-label">@L("Name")</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-sm-12">
+            @*<label class="form-label"> Product Upload  </label>*@
+            <div class="form-group marginbtmnone form-float">
+                <div class="customfileupload">
+                    <input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required>
+                        <div class="btn btn-primary  custom-file-uploader">
+                            <input id="filetoupload" ng-model="vm.product.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" />
+                            Browse
+                        </div>
+                    <span class="input-group-btn">
+                        <a ng-if="vm.invoices.productUpload!=null" href={{vm.datafield.uploadDocUrl}} target="_blank" class="btn btn-primary btndownloadfile"><i class="fa fa-download" aria-hidden="true"></i></a>
+                    </span>
+                </div>
+                    <span>
+                          [only pdf,doc,txt,xls,jpg file allowed.]
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+            @L("Cancel")
+        </button>
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()">
+            @L("Save")
+        </button>
+    </div>
+
+</form>
+
+
+
+
+
+----->create.js
+
+
+(function () {
+    angular.module('app').controller('app.views.product.create', [
+        '$scope', '$uibModalInstance', '$http', 'abp.services.app.product',
+        function ($scope, $uibModalInstance,$http, productService) {
+            var vm = this;
+            vm.saving = false;
+            vm.loading = false;
+            var maxsize = 2048000;
+            vm.product = {};
+
+
+            vm.save = function () {
+                productService.createProduct(vm.product).then(function () {
+                    abp.notify.info(App.localize('SavedSuccessfully'));
+                    $uibModalInstance.close();
+
+                }).finally(function () {
+                    debugger;
+                    vm.saving = false;
+                });
+            };
+            vm.getAll = function () {
+                vm.loading = true;
+                // debugger;
+                productService.GetProductData($.extend({}, vm.requestParams)).then(function (result) {
+                    //  debugger;
+                    vm.product = result.data.items;
+                    vm.userGridOptions.totalItems = result.data.totalCount;
+                    vm.userGridOptions.data = result.data.items;
+                    if (result.data.totalCount == 0) {
+                        //vm.norecord = true;
+                        abp.notify.info(app.localize('NoRecordFound'));
+                    }
+                    else { vm.norecord = false; }
+                }).finally(function () {
+                    vm.loading = false;
+                });
+
+            }
+            vm.uploadFile = function (file) {
+
+                vm.saving = true;
+                var files = $('#filetoupload')[0].files[0];
+                /*//console.log(files);*/
+                if ($('#filetoupload')[0].files.length == 0) {
+
+                    abp.notify.error(App.localize('pleaseuploaddoc'));
+
+                    return;
+                }
+
+                var uploadUrl = "../FileUpload/UploadProductAttachments";
+                debugger;
+                var fd = new FormData();
+                fd.append('file', $('#filetoupload')[0].files[0]);
+
+                $http.post(uploadUrl, fd, {
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': undefined }
+                }).then(function (data, status) {
+                    console.log(data);
+                    if (data.statusText == "OK") {
+
+                        vm.product.attachment = data.data.Result.fileName;
+                        //vm.saveAs();
+                        //console.log(data);
+                    }
+
+
+                    else {
+                        alert("somethingsiswrong");
+                    }
+
+                }).finally(function () {
+                    vm.saving = false;
+                    vm.saveAs();
+
+                })
+
+
+            };
+            vm.saveAs = function () {
+                debugger;
+                vm.loading = true;
+                vm.saving = true;
+                        productService.createProduct(vm.product).then(function (result) {
+                            vm.product = result.data;
+                            abp.notify.success(App.localize('ProductSavedSuccessfully'));
+
+                            $uibModalInstance.close();
+                            vm.getAll();
+
+                        }).finally(function () {
+                            vm.saving = false;
+                        });
+            };
+            vm.save = function () {
+                debugger;
+                vm.loading = true;
+                var files = $('#filetoupload')[0].files[0];
+
+
+                if ($('#filetoupload')[0].files.length != 0) {
+                    vm.product.attachment = files.name;
+                    var ext = vm.product.attachment.split('.').pop();
+                    if (ext == 'pdf' || ext == 'jpg' || ext == 'jpeg' || ext == 'doc' || ext == 'docx' || ext == 'txt' || ext == 'xls' || ext == 'xlsx') {
+                        //var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+                        //var i = parseInt(Math.floor(Math.log(files.size) / Math.log(1024)));
+                        //var sz = Math.round(files.size / Math.pow(1024, i), 2) + ' ' + sizes[i];
+                        if (files.size <= maxsize) {
+                            vm.uploadFile();
+                        }
+                        else {
+                            abp.notify.error(App.localize('FilesizeexceedsmaximumlimitMB'));
+                        }
+                    }
+
+                    else {
+                        abp.notify.error(App.localize('pleaseuploadcorrectfile'));
+
+                        // return;
+                    }
+
+                }
+                else {
+                    abp.notify.error(App.localize('pleaseuploaddoc'));
+                    //return;
+                    vm.loading = false;
+                }
+            };
+            vm.cancel = function () {
+                $uibModalInstance.dismiss();
+            };
+            function init() {
+            }
+            init();
+        }
+    ]);
+})();
+
+
+
+
+
+----->edit.cshtml
+
+
+<form id="frm_create_product" name="productCreateForm" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">
+            <span>@("Edit ProductName")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <span>product Module</span>
+        <uib-tabset class="tab-container tabbable-line">
+            <uib-tab heading="product Details">
+                <div class="row clearfix" style="margin-top:10px;">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <label for="name" class="form-label">@("name")</label>
+                            <div class="form-line">
+                                <input id="name" type="text" name="name" ng-model="vm.product.name" required maxlength="32" minlength="2" class="validate form-control">
+                            </div>
+                            <div class="form-line">
+                                <input id="name" type="text" name="name" ng-model="vm.product.attachment" required maxlength="32" minlength="2" class="validate form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        @*<label class="form-label"> Product Upload  </label>*@
+                        <div class="form-group marginbtmnone form-float">
+                            <div class="customfileupload">
+                                @*<input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required>*@
+                                <div class="btn btn-primary  custom-file-uploader">
+                                    <input id="filetoupload" ng-model="vm.product.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" />
+                                    Browse
+                                </div>
+                                <span class="input-group-btn">
+                                    @*<a ng-if="vm.invoices.productUpload!=null" href={{vm.datafield.uploadDocUrl}} target="_blank" class="btn btn-primary btndownloadfile"><i class="fa fa-download" aria-hidden="true"></i></a>*@
+                                </span>
+                            </div>
+                            <span>
+                                [only pdf,doc,txt,xls,jpg file allowed.]
+                            </span>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+            @("Cancel")
+        </button>
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()">
+            @("Save")
+        </button>
+    </div>
+
+</form>
+
+
+
+--------> edit.js
+
+(function () {
+    var myApp = angular.module('app');
+    myApp.controller('app.views.product.edit', [
+        '$scope', '$http', '$uibModalInstance', 'abp.services.app.product', 'id',
+        function ($scope, $http , $uibModalInstance, productService, id) {
+            var vm = this;
+            vm.loading = false;
+            vm.saving = false;
+            vm.product = {};
+            function init() {
+                debugger;
+                if (id == undefined) {
+
+                } else {
+                    productExsistenceById();
+                }
+            }
+            init();
+
+            function productExsistenceById() {
+                productService.productExsistenceById({
+                    id: id
+                }).then(function (result) {
+                    debugger;
+                    vm.product = result.data;
+                    console.log(vm.product);
+                });
+            }
+            vm.uploadFile = function (file) {
+                vm.saving = true;
+                if ($('#filetoupload')[0].files.length != 0) {
+                    var files = $('#filetoupload')[0].files[0];
+                    if ($('#filetoupload')[0].files.length == 0) {
+
+                        abp.notify.error(App.localize('pleaseuploaddoc'));
+                        return;
+                    }
+                    var uploadUrl = "../FileUpload/UploadProductAttachments";
+                    var fd = new FormData();
+                    fd.append('file', $('#filetoupload')[0].files[0]);
+                }
+                else {
+                    var uploadUrl = "../FileUpload/UploadProductAttachments";
+                    var fd = new FormData();
+                    fd.append('file', vm.product.attachment);
+                }
+                $http.post(uploadUrl, fd, {
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': undefined }
+                }).then(function (data, status) {
+                    if (data.statusText == "OK") {
+                        vm.product.attachment = data.data.Result.fileName;
+                        //vm.saveAs();
+                        //console.log(data);
+                    }
+
+
+
+                    else {
+                        alert("somethingsiswrong");
+                    }
+
+                }).finally(function () {
+                    vm.saving = false;
+                    vm.saveAs();
+                })
+
+
+            };
+
+            function init() {
+
+                productService.getProductbyid({
+                    id: id
+                }).then(function (result) {
+                    debugger;
+                    vm.product = result.data;
+                    console.log(vm.product);
+                });
+
+
+            }
+
+
+            vm.saveAs = function () {
+                vm.loading = true;
+                vm.saving = true;
+                productService.productExsistenceById(vm.product).then(function (result) {
+                    if (!result.data) {
+                        productService.updateProduct(vm.product)
+                            .then(function () {
+                                abp.notify.success(App.localize('ProductSavedSuccessfully'));
+                                $uibModalInstance.close();
+
+                            });
+                    }
+
+                    else {
+                        abp.notify.error(App.localize('product already Exist '));
+                        vm.loading = false;
+                    }
+                }).finally(function () {
+                    vm.saving = false;
+                });
+            };
+
+            vm.save = function () {
+                vm.loading = true;
+
+                if ($('#filetoupload')[0].files.length != 0) {
+                    var files = $('#filetoupload')[0].files[0];
+                    vm.product.attachment = files.name;
+                    var ext = vm.product.attachment.split('.').pop();
+
+
+                    if (ext == 'pdf' || ext == 'jpg' || ext == 'jpeg' || ext == 'doc' || ext == 'docx' || ext == 'txt' || ext == 'xls' || ext == 'xlsx') {
+
+                        vm.uploadFile();
+
+
+                    }
+
+                    else {
+                        abp.notify.error(App.localize('pleaseuploadcorrectfile'));
+                        //return;
+                        vm.loading = false;
+                    }
+                }
+                else {
+                    //abp.notify.error(App.localize('pleaseuploadproduct'));
+                    //return;
+                    vm.product.attachment = vm.product.attachment;
+                    vm.uploadFile();
+                }
+            }
+
+
+            function init() {
+                debugger;
+                if (id == undefined) {
+
+                } else {
+                    getProductbyid();
+                }
+            }
+            init();
+            function getProductbyid() {
+                productService.getProductbyid({
+                    id: id
+                }).then(function (result) {
+                    debugger;
+                    vm.product = result.data;
+                    console.log(vm.product);
+                });
+            }
+
+            vm.cancel = function () {
+                $uibModalInstance.close();
+            }
+            vm.save = function () {
+
+                productService.updateProduct(vm.product)
+                    .then(function () {
+                        abp.notify.info(App.localize('SavedSuccessfully'));
+                        $uibModalInstance.close();
+                    });
+
+            };
+
+        }
+    ]);
+})();
+
+
+
+
+--------->createproduct.cs
+
+
+
+using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestDemo.Product.Dto
+{
+    [AutoMapTo(typeof(products))]
+    public class CreateProductDto : EntityDto
+    {
+      public virtual string Name { get; set; }
+        public virtual string Title { get; set; }
+        public virtual string Attachment { get; set; }
+
+    }
+}
+
+
+
+
+--------->productdto.cs
+
+using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TestDemo.Product.Dto
+{
+    [AutoMapFrom(typeof(products))]
+    public class ProductDto : EntityDto
+    {
+        public virtual string Name { get; set; }
+        public virtual string Title { get; set; }
+        public virtual string Attachment { get; set; }
+    }
+}
+
+
+
