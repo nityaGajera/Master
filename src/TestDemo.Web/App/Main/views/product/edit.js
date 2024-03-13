@@ -3,13 +3,12 @@
     myApp.controller('app.views.product.edit', [
         '$scope', '$uibModalInstance', 'abp.services.app.product', 'id',
         function ($scope, $uibModalInstance, productService, id) {
-            debugger;
-            alert(1);
+            
+            
             var vm = this;
             vm.product = {};
 
             function init() {
-                debugger;
                 if (id == undefined) {
 
                 } else {
@@ -22,7 +21,7 @@
                 productService.getProductbyid({
                     id: id
                 }).then(function (result) {
-                    debugger;
+                    
                     vm.product = result.data;
                     console.log(vm.product);
                 });

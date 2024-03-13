@@ -31,13 +31,13 @@
             @*<label class="form-label"> Sensor Upload  </label>*@
             <div class="form-group marginbtmnone form-float">
                 <div class="customfileupload">
-                    <input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required>
+                    <input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required style="margin-top:10px;">
                     <div class="btn btn-primary  custom-file-uploader">
-                        <input id="filetoupload" ng-model="vm.sensor.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" />
+                        <input id="filetoupload" ng-model="vm.sensor.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" style="margin-top:5px;" />
                         Browse
                     </div>
-                    <span class="input-group-btn">
-                        <a ng-if="vm.invoices.productUpload!=null" href={{vm.datafield.uploadDocUrl}} target="_blank" class="btn btn-primary btndownloadfile"><i class="fa fa-download" aria-hidden="true"></i></a>
+                    <span class="input-group-btn" >
+                        <a ng-if="vm.invoices.productUpload!=null" href={{vm.datafield.uploadDocUrl}} target="_blank" class="btn btn-primary btndownloadfile"><i class="fa fa-download" aria-hidden="true" ></i></a>
                     </span>
                 </div>
                 <span>

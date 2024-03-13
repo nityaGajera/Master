@@ -29,6 +29,8 @@
     <text name="Surname" value="Surname" />
     <text name="EmailAddress" value="Email address" />
 
+	  <text name="PageName" value="Page name" />
+	  <text name="Description" value="Discription" />
 	  <text name="Title" value="Title" />
 
     <text name="Tenants" value="Tenants" />

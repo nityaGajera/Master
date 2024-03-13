@@ -68,7 +68,7 @@
         </h4>
     </div>
     <div class="modal-body">
-        <span>Sensor Module</span>
+        @*<span>Sensor Module</span>*@
         <uib-tabset class="tab-container tabbable-line">
             <uib-tab heading="Sensor Details">
                 <div class="row clearfix" style="margin-top:10px;">
@@ -91,7 +91,7 @@
                             <div class="customfileupload">
                                 @*<input type="text" name="Logo" id="logo" class="form-control" placeholder="No file selected" readonly required>*@
                                 <div class="btn btn-primary  custom-file-uploader">
-                                    <input id="filetoupload" ng-model="vm.sensor.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" />
+                                    <input id="filetoupload" ng-model="vm.sensor.attachment" type="file" name="file" onchange="this.form.logo.value = this.files.length ? this.files[0].name : ''" style="margin-top:10px;" />
                                     Browse
                                 </div>
                                 <img ng-src="{{ uploadedImageUrl }}" ng-show="uploadedImageUrl" />
