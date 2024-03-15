@@ -4,6 +4,40 @@
         function ($scope, $timeout, $uibModal, sensorService,$http) {
             var vm = this;
             vm.sensor = [];
+
+            vm.permissions = {
+                sensorcreate: abp.auth.hasPermission('Pages.Sensor.Create'),
+                sensorupdate: abp.auth.hasPermission('Pages.Sensor.Update'),
+                sensordelete: abp.auth.hasPermission('Pages.ProductCategory.Delete'),
+                
+
+            }
+            vm.sensorcreatepermission = function () {
+                if (vm.permissions.sensorcreate) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            vm.sensorupdatepermission = function () {
+                if (vm.permissions.sensorupdate) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            vm.sensordeletepermission = function () {
+                if (vm.permissions.sensordelete) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+
+
             function getSensor() {
                 sensorService.getSensorData()
 

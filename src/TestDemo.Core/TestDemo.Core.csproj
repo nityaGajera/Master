@@ -276,6 +276,8 @@
   <ItemGroup>
     <Compile Include="Application\Applications.cs" />
     <Compile Include="Product\products.cs" />
+    <Compile Include="Resource\Resources.cs" />
+    <Compile Include="Resource\ResourcesDoc.cs" />
     <Compile Include="Sensor\SensorChild.cs" />
     <Compile Include="Sensor\Sensors.cs" />
     <Compile Include="TestDemoConsts.cs" />

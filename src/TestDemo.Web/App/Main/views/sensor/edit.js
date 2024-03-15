@@ -196,7 +196,7 @@
             vm.sensor = {};
           
             function init() {
-                debugger;
+                
                 if (id == undefined) {
 
                 } else {

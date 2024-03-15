@@ -12,6 +12,34 @@
                     });
             }
 
+            vm.permissions = {
+                applicationcreate: abp.auth.hasPermission('Pages.Application.Create'),
+                applicationupdate: abp.auth.hasPermission('Pages.Application.Update'),
+                applicationdelete: abp.auth.hasPermission('Pages.Application.Delete'),
+            }
+
+            vm.applicationcreatepermission = function () {
+                if (vm.permissions.applicationcreate) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            vm.applicationupdatepermission = function () {
+                if (vm.permissions.applicationupdate) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            vm.applicationdeletepermission = function () {
+                if (vm.permissions.applicationdelete) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
             vm.openApplicationCreate = function () {
                 var modalInstance = $uibModal.open({
                     templateUrl: '/App/Main/views/application/create.cshtml',

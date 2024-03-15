@@ -1,12 +1,208 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Megh_Technologies(internship)\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}|TestDemo.EntityFramework\\TestDemo.EntityFramework.csproj|d:\\megh_technologies(internship)\\src\\testdemo.entityframework\\migrations\\202403150955176_resourcedocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}|TestDemo.EntityFramework\\TestDemo.EntityFramework.csproj|solutionrelative:testdemo.entityframework\\migrations\\202403150955176_resourcedocs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}|TestDemo.EntityFramework\\TestDemo.EntityFramework.csproj|d:\\megh_technologies(internship)\\src\\testdemo.entityframework\\entityframework\\testdemodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}|TestDemo.EntityFramework\\TestDemo.EntityFramework.csproj|solutionrelative:testdemo.entityframework\\entityframework\\testdemodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17298EA0-AF73-4F30-B6F1-2066100D7D74}|TestDemo.Core\\TestDemo.Core.csproj|d:\\megh_technologies(internship)\\src\\testdemo.core\\resource\\resourcesdoc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17298EA0-AF73-4F30-B6F1-2066100D7D74}|TestDemo.Core\\TestDemo.Core.csproj|solutionrelative:testdemo.core\\resource\\resourcesdoc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17298EA0-AF73-4F30-B6F1-2066100D7D74}|TestDemo.Core\\TestDemo.Core.csproj|d:\\megh_technologies(internship)\\src\\testdemo.core\\resource\\resources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17298EA0-AF73-4F30-B6F1-2066100D7D74}|TestDemo.Core\\TestDemo.Core.csproj|solutionrelative:testdemo.core\\resource\\resources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|d:\\megh_technologies(internship)\\src\\testdemo.web\\app\\main\\views\\resource\\indexresource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|solutionrelative:testdemo.web\\app\\main\\views\\resource\\indexresource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|d:\\megh_technologies(internship)\\src\\testdemo.web\\app\\main\\views\\resource\\crrateresource.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|solutionrelative:testdemo.web\\app\\main\\views\\resource\\crrateresource.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|d:\\megh_technologies(internship)\\src\\testdemo.web\\app\\main\\views\\resource\\create.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|solutionrelative:testdemo.web\\app\\main\\views\\resource\\create.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|d:\\megh_technologies(internship)\\src\\testdemo.web\\app\\main\\views\\layout\\sidebar-nav.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|solutionrelative:testdemo.web\\app\\main\\views\\layout\\sidebar-nav.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|d:\\megh_technologies(internship)\\src\\testdemo.web\\app\\main\\views\\resource\\indexresource.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|solutionrelative:testdemo.web\\app\\main\\views\\resource\\indexresource.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|d:\\megh_technologies(internship)\\src\\testdemo.web\\app\\main\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{897F6FD8-6F90-48E4-95A5-B4429B896205}|TestDemo.Web\\TestDemo.Web.csproj|solutionrelative:testdemo.web\\app\\main\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17298EA0-AF73-4F30-B6F1-2066100D7D74}|TestDemo.Core\\TestDemo.Core.csproj|d:\\megh_technologies(internship)\\src\\testdemo.core\\sensor\\sensors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17298EA0-AF73-4F30-B6F1-2066100D7D74}|TestDemo.Core\\TestDemo.Core.csproj|solutionrelative:testdemo.core\\sensor\\sensors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "indexresource.cshtml",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\indexresource.cshtml",
+              "RelativeDocumentMoniker": "TestDemo.Web\\App\\Main\\views\\resource\\indexresource.cshtml",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\indexresource.cshtml",
+              "RelativeToolTip": "TestDemo.Web\\App\\Main\\views\\resource\\indexresource.cshtml",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAswBkAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-15T07:20:30.508Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "202403150955176_ResourceDocs.cs",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.EntityFramework\\Migrations\\202403150955176_ResourceDocs.cs",
+              "RelativeDocumentMoniker": "TestDemo.EntityFramework\\Migrations\\202403150955176_ResourceDocs.cs",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.EntityFramework\\Migrations\\202403150955176_ResourceDocs.cs",
+              "RelativeToolTip": "TestDemo.EntityFramework\\Migrations\\202403150955176_ResourceDocs.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T09:55:26.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestDemoDbContext.cs",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.EntityFramework\\EntityFramework\\TestDemoDbContext.cs",
+              "RelativeDocumentMoniker": "TestDemo.EntityFramework\\EntityFramework\\TestDemoDbContext.cs",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.EntityFramework\\EntityFramework\\TestDemoDbContext.cs",
+              "RelativeToolTip": "TestDemo.EntityFramework\\EntityFramework\\TestDemoDbContext.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAwB8AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T09:38:57.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResourcesDoc.cs",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Core\\Resource\\ResourcesDoc.cs",
+              "RelativeDocumentMoniker": "TestDemo.Core\\Resource\\ResourcesDoc.cs",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Core\\Resource\\ResourcesDoc.cs",
+              "RelativeToolTip": "TestDemo.Core\\Resource\\ResourcesDoc.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T09:35:15.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Resources.cs",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Core\\Resource\\Resources.cs",
+              "RelativeDocumentMoniker": "TestDemo.Core\\Resource\\Resources.cs",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Core\\Resource\\Resources.cs",
+              "RelativeToolTip": "TestDemo.Core\\Resource\\Resources.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T09:32:31.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "create.js",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\create.js",
+              "RelativeDocumentMoniker": "TestDemo.Web\\App\\Main\\views\\resource\\create.js",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\create.js",
+              "RelativeToolTip": "TestDemo.Web\\App\\Main\\views\\resource\\create.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-15T09:17:14.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "crrateresource.js",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\crrateresource.js",
+              "RelativeDocumentMoniker": "TestDemo.Web\\App\\Main\\views\\resource\\crrateresource.js",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\crrateresource.js",
+              "RelativeToolTip": "TestDemo.Web\\App\\Main\\views\\resource\\crrateresource.js",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAQwAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-15T09:16:48.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "sidebar-nav.js",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\layout\\sidebar-nav.js",
+              "RelativeDocumentMoniker": "TestDemo.Web\\App\\Main\\views\\layout\\sidebar-nav.js",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\layout\\sidebar-nav.js",
+              "RelativeToolTip": "TestDemo.Web\\App\\Main\\views\\layout\\sidebar-nav.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwBQAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-15T07:21:39.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "app.js",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\app.js",
+              "RelativeDocumentMoniker": "TestDemo.Web\\App\\Main\\app.js",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\app.js",
+              "RelativeToolTip": "TestDemo.Web\\App\\Main\\app.js",
+              "ViewState": "AQIAADcAAAAAAAAAAAAQwFMAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-15T07:21:29.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "indexresource.js",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\indexresource.js",
+              "RelativeDocumentMoniker": "TestDemo.Web\\App\\Main\\views\\resource\\indexresource.js",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Web\\App\\Main\\views\\resource\\indexresource.js",
+              "RelativeToolTip": "TestDemo.Web\\App\\Main\\views\\resource\\indexresource.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-15T07:21:20.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Sensors.cs",
+              "DocumentMoniker": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Core\\Sensor\\Sensors.cs",
+              "RelativeDocumentMoniker": "TestDemo.Core\\Sensor\\Sensors.cs",
+              "ToolTip": "D:\\Megh_Technologies(internship)\\src\\TestDemo.Core\\Sensor\\Sensors.cs",
+              "RelativeToolTip": "TestDemo.Core\\Sensor\\Sensors.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-15T06:57:09.18Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

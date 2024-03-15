@@ -8,6 +8,7 @@ using TestDemo.Authorization.Users;
 using TestDemo.FileUploadByDirective;
 using TestDemo.MultiTenancy;
 using TestDemo.Product;
+using TestDemo.Resource;
 using TestDemo.Sensor;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -27,8 +28,11 @@ namespace TestDemo.EntityFramework
         public virtual IDbSet<Sensors> Sensor7 { get; set; }
         public virtual IDbSet<Applications> Applicationss { get; set; }
         public virtual IDbSet<SensorChild> SensorssChild { get; set; }
-     
-      
+        public virtual IDbSet<Resources> Resource9 { get; set; }
+        public virtual IDbSet<ResourcesDoc> ResourcesDocs { get; set; }
+
+
+
         public TestDemoDbContext()
             : base("Default")
         {

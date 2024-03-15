@@ -27,13 +27,30 @@
     <text name="UserName" value="User name" />
 	<text name="Name" value="Name" />
     <text name="Surname" value="Surname" />
-    <text name="EmailAddress" value="Email address" />
+    <text name="EmailAddress" value="Email address" />                     
 
-	  <text name="PageName" value="Page name" />
+	  <text name="PageName" value="Page Name" />                    
 	  <text name="Description" value="Discription" />
 	  <text name="Title" value="Title" />
+	  <text name="productCategory" value="Product Category" />
+	   <text name="Create_Product" value="Create Product" />
+	   <text name="Update_Product" value="Update Product" />
+	  <text name="Delete_Product" value="Delete Product" />
+	  
+	  <text name="Sensor" value="Sensor" />
+	  <text name="Create_Sensor" value=" Create Sensor" />
+	  <text name="Update_Sensor" value=" Update Sensor" />
+	  <text name="Delete_Sensor" value=" Delete Sensor" />
+	  
+	    
+	  <text name="Application" value="Application" />
+	  <text name="Create_Application" value=" Create Application" />
+      <text name="Update_Application" value=" Update Application" />
+	  <text name="Delete_Application" value=" Delete Application" />
 
-    <text name="Tenants" value="Tenants" />
+
+
+	  <text name="Tenants" value="Tenants" />
     <text name="SavedSuccessfully" value="Saved successfully" />
     <text name="CreateNewTenant" value="Create new tenant" />
     <text name="AdminEmailAddress" value="Admin email address" />

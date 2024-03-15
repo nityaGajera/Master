@@ -8,7 +8,7 @@
 
                 
 
-                <button type="button" data-toggle="modal" class="btn btn-primary btn-square waves-effect waves-square waves-float pull-right" ng-click="vm.openSensorCreate()">
+                <button type="button" @*ng-show="vm.permission.sensorcreate"*@ data-toggle="modal" class="btn btn-primary btn-square waves-effect waves-square waves-float pull-right" ng-click="vm.openSensorCreate()">
                     <i class="material-icons">add</i>
                 </button>
             </div>
@@ -28,8 +28,9 @@
                                     <i class="material-icons">menu</i>
                                 </a>
                                 <ul class="dropdown-menu pull-right">
-                                    <li><a class="waves-effect waves-block" ng-click="vm.openSensorEdit(t)"><i class="material-icons">create</i>edit</a></li>
-                                    <li><a class="waves-effect waves-block" ng-click="vm.deletedata(t)"><i class="material-icons">delete_sweep</i>delete</a></li>
+                                    <li><a class="waves-effect waves-block" @*ng-show="vm.permission.sensorupdate"*@ ng-click="vm.openSensorEdit(t)"><i class="material-icons">create</i>edit</a></li>
+
+                                    <li><a class="waves-effect waves-block"  @*ng-show="vm.permission.sensordelete"*@ ng-click="vm.deletedata(t)"><i class="material-icons">delete_sweep</i>delete</a></li>
                                 </ul>
                             </td>
                         </tr>

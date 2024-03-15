@@ -559,6 +559,11 @@
     <Content Include="App\Main\views\product\create.js" />
     <Content Include="App\Main\views\product\edit.js" />
     <Content Include="App\Main\views\product\index.js" />
+    <Content Include="App\Main\views\resource\create.js" />
+    <Content Include="App\Main\views\resource\crrateresource.js" />
+    <Content Include="App\Main\views\resource\edit.js" />
+    <Content Include="App\Main\views\resource\index.js" />
+    <Content Include="App\Main\views\resource\indexresource.js" />
     <Content Include="App\Main\views\roles\editModal.js" />
     <Content Include="App\Main\views\roles\createModal.js" />
     <Content Include="App\Main\views\roles\index.js" />
@@ -2808,6 +2813,11 @@
     <Content Include="App\Main\views\application\index.cshtml" />
     <Content Include="App\Main\views\application\create.cshtml" />
     <Content Include="App\Main\views\application\edit.cshtml" />
+    <Content Include="App\Main\views\resource\index.cshtml" />
+    <Content Include="App\Main\views\resource\create.cshtml" />
+    <Content Include="App\Main\views\resource\edit.cshtml" />
+    <Content Include="App\Main\views\resource\indexresource.cshtml" />
+    <Content Include="App\Main\views\resource\createresource.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">

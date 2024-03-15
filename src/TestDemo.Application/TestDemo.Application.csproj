@@ -258,6 +258,10 @@
     <Compile Include="Product\Dto\ProductDto.cs" />
     <Compile Include="Product\IProductAppService.cs" />
     <Compile Include="Product\ProductAppService.cs" />
+    <Compile Include="Resourceapplications\Dto\CreateResourceDto.cs" />
+    <Compile Include="Resourceapplications\Dto\ResourceDto.cs" />
+    <Compile Include="Resourceapplications\IResourceAppService.cs" />
+    <Compile Include="Resourceapplications\ResourceAppService.cs" />
     <Compile Include="Sensorapplication\Dto\CreateFileUploadDto.cs" />
     <Compile Include="Sensorapplication\Dto\FileUploadDto.cs" />
     <Compile Include="Sensorapplication\Dto\CreateSensorDto.cs" />

@@ -8,18 +8,18 @@
         </h4>
     </div>
     <div class="modal-body">
-        <span>sensor Module</span>
+        @*<span>sensor Module</span>*@
         <uib-tabset class="tab-container tabbable-line">
-            <uib-tab heading="Applictions Details">
-                <div class="row clearfix" style="margin-top:10px;">
+            @*<uib-tab heading="Applictions Details">*@
+                @*<div class="row clearfix" style="margin-top:10px;">
                     <div class="col-sm-12">
-                        <div class="form-group form-float">
-                            <label for="title" class="form-label">@("title")</label>
+                        <div class="form-group form-float">*@
                             <div class="form-line">
+                                <label for="name" class="form-label">@("Title")</label>
+                                @*<div class="form-line">*@
                                 <input id="title" type="text" name="name" ng-model="vm.application.title" required maxlength="32" minlength="2" class="validate form-control">
                             </div>
                         </div>
-                    </div>
                 </div>
     </div>
     <div class="modal-footer">

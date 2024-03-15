@@ -283,6 +283,22 @@
     <Compile Include="Migrations\202403041038387_SensorssChild.Designer.cs">
       <DependentUpon>202403041038387_SensorssChild.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403140641078_Resouce9.cs" />
+    <Compile Include="Migrations\202403140641078_Resouce9.Designer.cs">
+      <DependentUpon>202403140641078_Resouce9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403150942564_Resourcedocument.cs" />
+    <Compile Include="Migrations\202403150942564_Resourcedocument.Designer.cs">
+      <DependentUpon>202403150942564_Resourcedocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403150949304_Resourcedocument1.cs" />
+    <Compile Include="Migrations\202403150949304_Resourcedocument1.Designer.cs">
+      <DependentUpon>202403150949304_Resourcedocument1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403150953085_ResourceDoc.cs" />
+    <Compile Include="Migrations\202403150953085_ResourceDoc.Designer.cs">
+      <DependentUpon>202403150953085_ResourceDoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestDemoDataModule.cs" />
     <Compile Include="Migrations\201809270654064_InitialMigrations.cs" />
     <Compile Include="Migrations\201809270654064_InitialMigrations.Designer.cs">
@@ -442,6 +458,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403041038387_SensorssChild.resx">
       <DependentUpon>202403041038387_SensorssChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403140641078_Resouce9.resx">
+      <DependentUpon>202403140641078_Resouce9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403150942564_Resourcedocument.resx">
+      <DependentUpon>202403150942564_Resourcedocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403150949304_Resourcedocument1.resx">
+      <DependentUpon>202403150949304_Resourcedocument1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403150953085_ResourceDoc.resx">
+      <DependentUpon>202403150953085_ResourceDoc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,6 +14,17 @@
         public const string Pages_ProductCategory_Delete = "Pages.ProductCategory.Delete";
 
 
+        public const string Pages_Sensor = "Pages.Sensor";
+        public const string Pages_Sensor_Create = "Pages.Sensor.Create";
+        public const string Pages_Sensor_Update = "Pages.Sensor.Update";
+        public const string Pages_Sensor_Delete = "Pages.Sensor.Delete";
+
+        public const string Pages_Application = "Pages.Application";
+        public const string Pages_Application_Create = "Pages.Application.Create";
+        public const string Pages_Application_Update = "Pages.Application.Update";
+        public const string Pages_Application_Delete = "Pages.Application.Delete";
+
+
 
     }
 }

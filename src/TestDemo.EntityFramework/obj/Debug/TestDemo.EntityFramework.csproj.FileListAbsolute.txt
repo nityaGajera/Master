@@ -123,9 +123,13 @@ D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.Attchedd.resources
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.MeghTech.resources
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.SensorssChild.resources
+D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.Resouce9.resources
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.EntityFramework.csproj.GenerateResource.cache
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.EntityFramework.csproj.CoreCompileInputs.cache
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.EntityFramework.csproj.Fody.CopyLocal.cache
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.74771377.Up2Date
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.EntityFramework.dll
 D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.EntityFramework.pdb
+D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.Resourcedocument.resources
+D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.Resourcedocument1.resources
+D:\Megh_Technologies(internship)\src\TestDemo.EntityFramework\obj\Debug\TestDemo.Migrations.ResourceDoc.resources

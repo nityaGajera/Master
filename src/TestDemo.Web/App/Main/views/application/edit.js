@@ -6,13 +6,8 @@
             var vm = this;
             vm.application = {};
 
-            function init() {
-                debugger;
-                if (id == undefined) {
-
-                } else {
-                    getApplicationbyid();
-                }
+            function init() {       
+                getApplicationbyid();
             }
             init();
 
@@ -20,9 +15,8 @@
                 applicationService.getApplicationbyid({
                     id: id
                 }).then(function (result) {
-                    debugger;
+                   
                     vm.application = result.data;
-                    console.log(vm.application);
                 });
             }
 

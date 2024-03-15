@@ -70,19 +70,20 @@
     <div class="modal-body">
         @*<span>Sensor Module</span>*@
         <uib-tabset class="tab-container tabbable-line">
-            <uib-tab heading="Sensor Details">
-                <div class="row clearfix" style="margin-top:10px;">
+            @*<uib-tab heading="Sensor Details">*@
+                @*<div class="row clearfix" style="margin-top:10px;">
                     <div class="col-sm-12">
                         <div class="form-group form-float">
-                            <label for="name" class="form-label">@("title")</label>
-                            <div class="form-line">
-                                <input id="title" type="text" name="name" ng-model="vm.sensor.title" required maxlength="32" minlength="2" class="validate form-control">
-                            </div>
-                            <div class="form-line">
-                                <input id="title" type="text" name="name" ng-model="vm.sensor.attachment" required maxlength="32" minlength="2" class="validate form-control">
+                            <div class="form-line">*@
+                                <label for="name" class="form-label">@("Title")</label>
+                                @*<div class="form-line">*@
+                                    <input id="title" type="text" name="name" ng-model="vm.sensor.title" required maxlength="32" minlength="2" class="validate form-control">
+                                </div>
+                                <div class="form-line">
+                                    <input id="title" type="text" name="name" ng-model="vm.sensor.attachment" required maxlength="32" minlength="2" class="validate form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
                 <div class="row clearfix">
                     <div class="col-sm-12">

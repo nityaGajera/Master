@@ -15,6 +15,17 @@ namespace TestDemo.Authorization
             ProductCategory.CreateChildPermission(PermissionNames.Pages_ProductCategory_Create, L("Create_Product"));
             ProductCategory.CreateChildPermission(PermissionNames.Pages_ProductCategory_Update, L("Update_Product"));
             ProductCategory.CreateChildPermission(PermissionNames.Pages_ProductCategory_Delete, L("Delete_Product"));
+
+            var sensor = context.CreatePermission(PermissionNames.Pages_Sensor, L("Sensor"));
+            sensor.CreateChildPermission(PermissionNames.Pages_Sensor_Create, L("Create_Sensor"));
+            sensor.CreateChildPermission(PermissionNames.Pages_Sensor_Update, L("Update_Sensor"));
+            sensor.CreateChildPermission(PermissionNames.Pages_Sensor_Delete, L("Delete_Sensor"));
+
+            var application = context.CreatePermission(PermissionNames.Pages_Application, L("Application"));
+            application.CreateChildPermission(PermissionNames.Pages_Application_Create, L("Create_Application"));
+            application.CreateChildPermission(PermissionNames.Pages_Application_Update, L("Update_Application"));
+            application.CreateChildPermission(PermissionNames.Pages_Application_Delete, L("Delete_Application"));
+
         }
 
         private static ILocalizableString L(string name)

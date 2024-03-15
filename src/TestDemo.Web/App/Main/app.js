@@ -75,6 +75,16 @@
                     url: '/application',
                     templateUrl: '/App/Main/views/application/index.cshtml',
                     menu: 'Application' //Matches to name of 'product' menu in TestDemoNavigationProvider
+
+                }).state('resource', {
+                    url: '/resource',
+                    templateUrl: '/App/Main/views/resource/index.cshtml',
+                    menu: 'Resource' 
+                })
+                .state('resources', {
+                    url: '/resource',
+                    templateUrl: '/App/Main/views/resource/indexresource.cshtml',
+                    menu: 'Resource' 
                 });
         }
     ]);
