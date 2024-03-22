@@ -553,6 +553,8 @@
     <Content Include="App\Main\_libconfig.js" />
     <Content Include="Common\Scripts\helpers.js" />
     <Content Include="images\adi_artech_transducers_pvt_ltd.png" />
+    <Content Include="images\agricultural_icon.png" />
+    <Content Include="images\automation_icon.png" />
     <Content Include="images\banner_career.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -660,6 +662,7 @@
     <Content Include="App\Main\web.config" />
     <Content Include="images\about_us_img.jpg" />
     <Content Include="images\banner_about_us.png" />
+    <Content Include="images\banner_contact_us.png" />
     <Content Include="images\banner_img1.png" />
     <Content Include="images\banner_logos.png" />
     <Content Include="images\banner_ports.png" />
