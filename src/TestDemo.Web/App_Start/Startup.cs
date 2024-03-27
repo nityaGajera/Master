@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Configuration;
-using Abp.Hangfire;
 using Abp.Owin;
 using TestDemo.Api.Controllers;
 using TestDemo.Web;
-using Hangfire;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using TestDemo.Authorization;
 
 [assembly: OwinStartup(typeof(Startup))]
+
 namespace TestDemo.Web
 {
     public class Startup
@@ -34,13 +32,6 @@ namespace TestDemo.Web
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             app.MapSignalR();
-
-            //Enable it to use HangFire dashboard(uncomment only if it's enabled in TechnoFormsWebModule)
-            app.UseHangfireDashboard("/hangfire", new DashboardOptions
-            {
-                Authorization = new[] { new AbpHangfireAuthorizationFilter(PermissionNames.Pages_Admin_HangfireDashboard) }
-                //Authorization = new[] { new AbpHangfireAuthorizationFilter() }  //access hangfire dashboard  for all users
-            });
         }
     }
 }
